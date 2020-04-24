@@ -1,8 +1,39 @@
-HW: 
+Hardware:
+========
 DC fan working principle : https://www.manualslib.com/manual/539915/Smsc-Emc2102.html?page=35
 
 Protocols:
+=========
 Serial communication : https://www.swarthmore.edu/NatSci/echeeve1/Class/e91/Lectures/E91(10)Serial.pdf
 
 Languages and Compilation:
+==========================
 Library link Order :  https://eli.thegreenplace.net/2013/07/09/library-order-in-static-linking
+
+Hardware Diagnostic Tests :
+=========================
+Memory tests:
+http://www.ganssle.com/testingram.htm
+
+bool test_ram(){
+  unsigned int save_lo, save_hi;
+  bool error = FALSE;
+  static unsigned int data=1;
+  static unsigned long *address = START_ADDRESS;
+  static unsigned int offset;
+   push_intr_state();
+   disable_interrupts();
+   save_lo                = *address; 
+   for(offset=1; offset<=0x8000; offset=offset<<1){ 
+   save_hi              = *(address+offset);
+  *address             =   data;
+  *(address+offset)    =  ~data;
+  if(*address          !=  data)error=TRUE;
+  if(*(address+offset) != ~data)error=TRUE;
+  *(address+offset)    =  save_hi;
+  data= (data<<1) | (data >> (8*sizeof(int)-1)));}
+  *address             =  save_lo;
+             
+  pop_intr_state();
+  return error;
+ }
