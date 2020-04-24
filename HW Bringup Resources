@@ -14,6 +14,7 @@ Hardware Diagnostic Tests :
 =========================
 Memory tests:
 ============
+Strategy : Data Bus followed by Address Bus followed by Memory Device test
 https://barrgroup.com/embedded-systems/how-to/memory-test-suite-c
 http://www.ganssle.com/testingram.htm
 
