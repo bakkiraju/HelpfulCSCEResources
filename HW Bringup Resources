@@ -14,10 +14,11 @@ Hardware Diagnostic Tests :
 =========================
 Memory tests:
 ============
+Memory map : https://www.youtube.com/watch?v=jkT9Bgz8PAg
 Strategy : Data Bus followed by Address Bus followed by Memory Device test
+Tests:
 https://barrgroup.com/embedded-systems/how-to/memory-test-suite-c
 http://www.ganssle.com/testingram.htm
-
 bool test_ram(){
   unsigned int save_lo, save_hi;
   bool error = FALSE;
