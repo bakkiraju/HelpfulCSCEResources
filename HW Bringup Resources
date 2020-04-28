@@ -12,6 +12,10 @@ Library link Order :  https://eli.thegreenplace.net/2013/07/09/library-order-in-
 
 Hardware Diagnostic Tests :
 =========================
+JTAG:
+====
+https://www.corelis.com/educationdownload/JTAG-Tutorial.pdf
+
 Memory tests:
 ============
 Memory map : https://www.youtube.com/watch?v=jkT9Bgz8PAg
